@@ -3,28 +3,17 @@
 namespace Database\Seeders;
 
 use App\Models\Good;
-use App\Models\Category;
 use Illuminate\Database\Seeder;
 
-class DatabaseSeeder extends Seeder
+class GoodSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        Category::create([
-            'name' => 'Food'
-        ]);
-
-        Category::create(
-            ['name' => 'Drink'
-        ]);
-
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 1',
