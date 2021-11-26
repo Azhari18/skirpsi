@@ -15,9 +15,15 @@ class GoodController extends Controller
      */
     public function index()
     {
+        $goods = Good::with(['category'])->latest();
+
+        if(request('search')){
+            $goods->where('name', 'like', '%' . request('search') . '%')
+                  ->orWhere('id', request('search'));
+        }
+        
         return view('transaction', [
-            // "goods" => Good::all()
-            "goods" => Good::with(['category'])->latest()->get()
+            "goods" =>$goods->get()
         ]);
     }
 

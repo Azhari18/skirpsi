@@ -11,9 +11,31 @@
                         class="text-muted"><span id="day"></span>, <span id="date"></span> <span id="month"></span>
                         <span id="year"></span> , <span id="jam"></span></small></p>
 
+                <!-- Start Search bar -->
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-12">
+                        <form action="/">
+                            {{-- @if (request('category'))
+                                <input type="hidden" name="category" value="{{ request('category') }}">
+                            @endif
+
+                            @if (request('author'))
+                                <input type="hidden" name="author" value="{{ request('author') }}">
+                            @endif --}}
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search..." name="search"
+                                    value="{{ request('search') }}">
+                                <button class="btn btn-danger" type="submit">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- End Search bar -->
+
                 <!-- Start Nav bar -->
                 <div class="card rounded-3 mb-3">
-                    <div class="card-body">
+                    <div class="card-body p-1">
                         <ul class="nav nav-pills" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active rounded-pill" id="pills-food-tab" data-bs-toggle="pill"
@@ -128,7 +150,6 @@
 
                 </div>
                 <!-- End Content -->
-
             </div>
             <!-- End Left Side -->
 
