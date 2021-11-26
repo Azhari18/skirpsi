@@ -50,21 +50,3 @@ Route::get('/categories', function () {
         'categories' => Category::all()
     ]);
 });
-
-// Category Page
-Route::get('/categories/{category:slug}', function (Category $category) {
-    return view('posts', [
-        'title' => "Post By Category : $category->name",
-        'active' => 'categories',
-        'posts' => $category->posts->load('category', 'author'),        
-    ]);
-});
-
-//Author Page
-Route::get('/authors/{author:username}', function (User $author) {
-    return view('Posts', [
-        'title' => "Post By Author : $author->name",
-        'active' => 'posts',
-        'posts' => $author->posts->load('category', 'author')       
-    ]);
-});
