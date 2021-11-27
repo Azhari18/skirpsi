@@ -19,3 +19,13 @@ use App\Http\Controllers\GoodController;
 // Route::get('/', [TransactionController::class, 'index']);
 
 Route::get('/', [GoodController::class, 'index']);
+
+// Register goods data
+// Route::get('/good', [GoodController::class, 'create']);
+
+Route::get('/good', function () {
+    return view('test');
+});
+
+// Store goods data
+Route::post('/good', [GoodController::class, 'store']);

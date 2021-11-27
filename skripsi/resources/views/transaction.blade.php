@@ -7,22 +7,22 @@
 
             <!-- Start Left Side -->
             <div class="col-sm-8">
-                <p class="d-flex justify-content-between align-items-center fw-bold">Order #001 <small
-                        class="text-muted"><span id="day"></span>, <span id="date"></span> <span id="month"></span>
-                        <span id="year"></span> , <span id="jam"></span></small></p>
+                <p class="d-flex justify-content-between align-items-center fw-bold">Order #001
+                    <small class="text-muted">
+                        <span id="day"></span>, 
+                        <span id="date"></span> 
+                        <span id="month"></span>
+                        <span id="year"></span>, 
+                        <span id="jam"></span></small>
+                </p>
 
                 <!-- Start Search bar -->
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-12">
+                <div class="row justify-content-start mb-3">
+                    <!-- Start Nav Bar -->
+                @include('partials.navbar')
+                <!-- End Nav Bar -->
+                    <div class="col-md-11 ms-3">
                         <form action="/">
-                            {{-- @if (request('category'))
-                                <input type="hidden" name="category" value="{{ request('category') }}">
-                            @endif
-
-                            @if (request('author'))
-                                <input type="hidden" name="author" value="{{ request('author') }}">
-                            @endif --}}
-
                             <div class="input-group">
                                 <input type="text" class="form-control" placeholder="Search..." name="search"
                                     value="{{ request('search') }}">
@@ -33,7 +33,7 @@
                 </div>
                 <!-- End Search bar -->
 
-                <!-- Start Nav bar -->
+                <!-- Start Category -->
                 <div class="card rounded-3 mb-3">
                     <div class="card-body p-1">
                         <ul class="nav nav-pills" id="pills-tab" role="tablist">
@@ -55,7 +55,7 @@
                         </ul>
                     </div>
                 </div>
-                <!-- End Nav bar -->
+                <!-- End Category -->
 
                 <!-- Start Content -->
                 <div class="tab-content" id="pills-tabContent">
@@ -162,6 +162,7 @@
                         <h5 class="d-flex justify-content-between align-items-center">
                             <span>Order</span>
                             <button onclick="orderbasketClear()" class="btn btn-sm btn-danger rounded-pill">Clear</button>
+                            {{-- <span></span> --}}
                         </h5>
                         <hr>
                         <!-- End Header -->

@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Good;
-use App\Http\Requests\StoreGoodRequest;
-use App\Http\Requests\UpdateGoodRequest;
+use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class GoodController extends Controller
 {
@@ -34,7 +34,7 @@ class GoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('good');
     }
 
     /**
@@ -43,9 +43,23 @@ class GoodController extends Controller
      * @param  \App\Http\Requests\StoreGoodRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreGoodRequest $request)
+    public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255', 'unique:goods'],
+            'price' => ['required', 'min:3', 'max:6'], 
+            'category_id' => ['required'],
+            'img' => ['required']
+        ]);
+
+        Good::create($validatedData);
+
+        // return redirect('/login');
+        
+
+        // $request->session()->flash('success', 'Registration successful! Please login');
+
+        // return redirect('/login')->with('success', 'Registration successful! Please login');
     }
 
     /**
@@ -77,7 +91,7 @@ class GoodController extends Controller
      * @param  \App\Models\Good  $good
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGoodRequest $request, Good $good)
+    public function update()
     {
         //
     }

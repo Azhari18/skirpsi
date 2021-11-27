@@ -10,6 +10,13 @@ class Good extends Model
     use HasFactory;
     protected $guarded = ['id'];
 
+    // protected $fillable = [
+    //     'category_id',
+    //     'name',
+    //     'price',
+    //     'img',
+    //   ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
