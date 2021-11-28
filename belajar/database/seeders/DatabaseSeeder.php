@@ -16,30 +16,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(3)->create();
+        
 
-        // Category::create([
-        //     'name' => 'Web Programming',
-        //     'slug' => 'web-programing'
-        // ]);
+        Category::create([
+            'name' => 'Web Programming',
+            'slug' => 'web-programing'
+        ]);
 
-        // Category::create([
-        //     'name' => 'Web Design',
-        //     'slug' => 'web-design'
-        // ]);
+        Category::create([
+            'name' => 'Web Design',
+            'slug' => 'web-design'
+        ]);
 
-        // Category::create([
-        //     'name' => 'Personal',
-        //     'slug' => 'personal'
-        // ]);
+        Category::create([
+            'name' => 'Personal',
+            'slug' => 'personal'
+        ]);
 
         Post::factory(10)->create();
 
-        // User::create([
-        //     'name' => 'azhari arsyad' ,
-        //     'email' =>'azhari.18des@gmail.com',
-        //     'password' => bcrypt('12345')
-        // ]);
+        User::create([
+            'name' => 'azhari arsyad' ,
+            'username' => 'azhariarsyad',
+            'email' =>'azhari.18des@gmail.com',
+            'password' => bcrypt('12345')
+        ]);
+
+        User::factory(3)->create();
 
         // User::create([
         //     'name' => 'arsyad azhari' ,
