@@ -5,6 +5,7 @@
         <h1 class="h2">My posts</h1>
     </div>
     <div class="table-responsive">
+        <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create new post</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
