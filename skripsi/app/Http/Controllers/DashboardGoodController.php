@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Good;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DashboardGoodController extends Controller
@@ -26,7 +27,9 @@ class DashboardGoodController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.goods.create', [
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -37,7 +40,7 @@ class DashboardGoodController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $request;
     }
 
     /**

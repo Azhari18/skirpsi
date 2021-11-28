@@ -5,6 +5,7 @@
         <h1 class="h2">Data Barang</h1>
     </div>
     <div class="table-responsive">
+        <a href="/dashboard/goods/create" class="btn btn-primary mb-3">Tambahkan data barang</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
