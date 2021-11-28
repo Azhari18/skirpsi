@@ -20,7 +20,7 @@
                     <!-- Button Home -->
                     <div id="menuBtn">
                         <a href="/dashboard/goods">
-                            <img src="https://img.icons8.com/ios/50/000000/home--v3.png"/>
+                            <img src="https://img.icons8.com/ios/50/000000/home--v3.png" />
                         </a>
                     </div>
                     <!-- Start Search bar -->
@@ -71,8 +71,19 @@
                                     <div class="col">
                                         <div class="card"
                                             onclick="checkId({{ $good['id'] }}, '{{ $good['name'] }}', {{ $good['price'] }}, 'img/{{ $good['img'] }}');">
-                                            <img src='img/{{ $good['img'] }}' draggable="false" class="card-img-top"
-                                                alt="...">
+                                            @if ($good->img)
+                                                <div style="max-height: 150px; overflow:hidden">
+                                                    <img src="{{ asset('storage/' . $good->img) }}" alt="..."
+                                                        draggable="false" class="card-img-top">
+                                                </div>
+
+                                            @else
+                                                <div style="max-height: 150px; overflow:hidden">
+                                                    <img src='img/indomie.jpg' draggable="false" class="card-img-top"
+                                                        alt="...">
+                                                </div>
+                                            @endif
+
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $good['name'] }}</h5>
                                                 <p class="card-text fw-bold">{{ $good['price'] }}</p>

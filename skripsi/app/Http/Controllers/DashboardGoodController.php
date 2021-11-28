@@ -43,9 +43,13 @@ class DashboardGoodController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'max:255', 'unique:goods'],
             'price' => ['required', 'max:6'],
-            'img' => ['required'],
+            'img' => ['image', 'file', 'max:1024'],
             'category_id' => ['required']
         ]);
+
+        if($request->file('img')){
+            $validatedData['img'] = $request->file('img')->store('post-images');
+        }
 
         Good::create($validatedData);
         return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil disimpan!');

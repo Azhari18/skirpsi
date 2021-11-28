@@ -8,7 +8,7 @@
 
 
     <div class="col-lg-8 mb-3">
-        <form method="post" action="/dashboard/goods">
+        <form method="post" action="/dashboard/goods" class="mb-5" enctype="multipart/form-data">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Barang</label>
@@ -31,9 +31,8 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="img" class="form-label">Gambar</label>
-                <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
-                    value="{{ old('img') }}">
+                <label for="img" class="form-label">Gambar Barang</label>
+                <input class="form-control  @error('img') is-invalid @enderror" type="file" id="img" name="img">
                 @error('img')
                     <div class="invalid-feedback">
                         {{ $message }}
