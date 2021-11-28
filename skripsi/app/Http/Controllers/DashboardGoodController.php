@@ -15,8 +15,8 @@ class DashboardGoodController extends Controller
      */
     public function index()
     {
-        return view('dashboard.goods.index',[
-            'goods' => Good::all()
+        return view('dashboard.goods.index', [
+            'goods' => Good::latest()->get()
         ]);
     }
 
@@ -70,7 +70,10 @@ class DashboardGoodController extends Controller
      */
     public function edit(Good $good)
     {
-        //
+        return view('dashboard.goods.edit', [
+            'good' => $good,
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -82,7 +85,20 @@ class DashboardGoodController extends Controller
      */
     public function update(Request $request, Good $good)
     {
-        //
+        $rules = [
+            'price' => ['required', 'max:6'],
+            'img' => ['required'],
+            'category_id' => ['required']
+        ];
+
+        if($request->name != $good->name) {
+            $rules['name'] = ['required', 'max:255', 'unique:goods'];
+        }
+
+        $validatedData = $request->validate($rules);
+
+        Good::where('id', $good->id)->update($validatedData);
+        return redirect('/dashboard/goods')->with('success', 'Data Barang telah diperbaharui');
     }
 
     /**
@@ -93,6 +109,7 @@ class DashboardGoodController extends Controller
      */
     public function destroy(Good $good)
     {
-        //
+        Good::destroy($good->id);
+        return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil dihapus!');
     }
 }
