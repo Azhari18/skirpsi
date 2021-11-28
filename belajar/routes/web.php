@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Models\Category;
 
 use Illuminate\Support\Facades\Route;
@@ -53,10 +54,19 @@ Route::get('/categories', function () {
 });
 
 // Login Page
-Route::get('/login', [LoginController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+
+// Login Authenticate
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 // Register Page
-Route::get('/register', [RegisterController::class, 'index']);
+Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 
 // Register Store
 Route::post('/register', [RegisterController::class, 'store']);
+
+// Register Dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+
+// Logout
+Route::post('/logout', [LoginController::class, 'logout']);
