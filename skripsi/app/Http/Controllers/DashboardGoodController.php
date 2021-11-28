@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Good;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardGoodController extends Controller
 {
@@ -91,7 +92,7 @@ class DashboardGoodController extends Controller
     {
         $rules = [
             'price' => ['required', 'max:6'],
-            'img' => ['required'],
+            'img' => ['image', 'file', 'max:1024'],
             'category_id' => ['required']
         ];
 
@@ -100,6 +101,13 @@ class DashboardGoodController extends Controller
         }
 
         $validatedData = $request->validate($rules);
+
+        if($request->file('img')){
+            if($request->oldImage){
+                Storage::delete($request->oldImage);
+            }
+            $validatedData['img'] = $request->file('img')->store('post-images');
+        }
 
         Good::where('id', $good->id)->update($validatedData);
         return redirect('/dashboard/goods')->with('success', 'Data Barang telah diperbaharui');
@@ -113,6 +121,9 @@ class DashboardGoodController extends Controller
      */
     public function destroy(Good $good)
     {
+        if($good->img){
+            Storage::delete($good->img);
+        }
         Good::destroy($good->id);
         return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil dihapus!');
     }

@@ -8,7 +8,7 @@
 
 
     <div class="col-lg-8 mb-3">
-        <form method="post" action="/dashboard/goods/{{ $good->id }}">
+        <form method="post" action="/dashboard/goods/{{ $good->id }}" class="mb-5" enctype="multipart/form-data">
             @method('put')
             @csrf
             <div class="mb-3">
@@ -32,9 +32,15 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="img" class="form-label">Gambar</label>
-                <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
-                    value="{{ old('img', $good->img) }}">
+                <label for="img" class="form-label">Gambar Barang</label>
+                <input type="hidden" name="oldImage" value="{{ $good->img }}">
+                @if ($good->img)
+                    <img src="{{ asset('storage/' . $good->img) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" alt="">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
+                @endif
+
+                <input class="form-control  @error('img') is-invalid @enderror" type="file" id="img" name="img" onchange="previewImage()">
                 @error('img')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -59,18 +65,19 @@
     </div>
 
     <script>
-        const title = document.querySelector('#title');
-        const slug = document.querySelector('#slug');
+        function previewImage() {
+            const image = document.querySelector('#img')
+            const imgPreview = document.querySelector('.img-preview')
 
-        title.addEventListener('change', function() {
-            fetch('/dashboard/posts/checkSlug?title=' + title.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug)
-        });
+            imgPreview.style.display = 'block';
 
-        document.addEventListener('trix-file-accept', function(e) {
-            e.preventDefalut();
-        })
+            const oFReader = new FileReader();
+            oFReader.readAsDataURL(image.files[0]);
+
+            oFReader.onload = function(oFREvent){
+                imgPreview.src = oFREvent.target.result;
+            }
+        }
     </script>
 
 @endsection
