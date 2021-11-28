@@ -5,28 +5,50 @@
         <h1 class="h2">Tambah Data Barang</h1>
     </div>
 
-    
+
 
     <div class="col-lg-8 mb-3">
         <form method="post" action="/dashboard/goods">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nama Barang</label>
-                <input type="text" class="form-control" id="name" name="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" autofocus
+                    value="{{ old('name') }}">
+                @error('name')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="price" class="form-label">Harga Barang</label>
-                <input type="number" class="form-control" id="price" name="price">
+                <input type="number" class="form-control @error('price') is-invalid @enderror" id="price" name="price"
+                    value="{{ old('price') }}">
+                @error('price')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
                 <label for="img" class="form-label">Gambar</label>
-                <input type="text" class="form-control" id="img" name="img">
+                <input type="text" class="form-control @error('img') is-invalid @enderror" id="img" name="img"
+                    value="{{ old('img') }}">
+                @error('img')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
             </div>
             <div class="mb-3">
-                <label for="category" class="form-label">Category</label>
+                <label for="category" class="form-label">Kategori</label>
                 <select class="form-select" name="category_id">
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @if (old('category_id') == $category->id)
+                            <option value="{{ $category->id }}" selected>{{ $category->name }}</option>
+                        @else
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endif
                     @endforeach
                 </select>
             </div>
@@ -45,7 +67,7 @@
                 .then(data => slug.value = data.slug)
         });
 
-        document.addEventListener('trix-file-accept', function(e){
+        document.addEventListener('trix-file-accept', function(e) {
             e.preventDefalut();
         })
     </script>

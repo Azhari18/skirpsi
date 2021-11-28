@@ -40,7 +40,15 @@ class DashboardGoodController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+        $validatedData = $request->validate([
+            'name' => ['required', 'max:255', 'unique:goods'],
+            'price' => ['required', 'max:6'],
+            'img' => ['required'],
+            'category_id' => ['required']
+        ]);
+
+        Good::create($validatedData);
+        return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil disimpan!');
     }
 
     /**
