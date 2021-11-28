@@ -1,8 +1,10 @@
 <?php
 
-
+use App\Http\Controllers\DashboardGoodController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoodController;
+use App\Http\Controllers\TransactionController;
+
 // use App\Http\Controllers\TransactionController;
 
 /*
@@ -16,16 +18,18 @@ use App\Http\Controllers\GoodController;
 |
 */
 
-// Route::get('/', [TransactionController::class, 'index']);
 
-Route::get('/', [GoodController::class, 'index']);
 
-// Register goods data
-// Route::get('/good', [GoodController::class, 'create']);
-
-Route::get('/good', function () {
-    return view('test');
+// Home Page 
+Route::get('/', function () {
+    return view('dashboard.index');
 });
+
+// Goods Page
+Route::resource('/dashboard/goods', DashboardGoodController::class);
+
+// Transaction Page
+Route::get('/transaction', [TransactionController::class, 'index']);
 
 // Store goods data
 Route::post('/good', [GoodController::class, 'store']);

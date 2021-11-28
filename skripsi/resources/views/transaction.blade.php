@@ -9,18 +9,21 @@
             <div class="col-sm-8">
                 <p class="d-flex justify-content-between align-items-center fw-bold">Order #001
                     <small class="text-muted">
-                        <span id="day"></span>, 
-                        <span id="date"></span> 
+                        <span id="day"></span>,
+                        <span id="date"></span>
                         <span id="month"></span>
-                        <span id="year"></span>, 
+                        <span id="year"></span>,
                         <span id="jam"></span></small>
                 </p>
 
-                <!-- Start Search bar -->
                 <div class="row justify-content-start mb-3">
-                    <!-- Start Nav Bar -->
-                @include('partials.navbar')
-                <!-- End Nav Bar -->
+                    <!-- Button Home -->
+                    <div id="menuBtn">
+                        <a href="/dashboard/goods">
+                            <img src="https://img.icons8.com/ios/50/000000/home--v3.png"/>
+                        </a>
+                    </div>
+                    <!-- Start Search bar -->
                     <div class="col-md-11 ms-3">
                         <form action="/">
                             <div class="input-group">
@@ -30,8 +33,8 @@
                             </div>
                         </form>
                     </div>
+                    <!-- End Search bar -->
                 </div>
-                <!-- End Search bar -->
 
                 <!-- Start Category -->
                 <div class="card rounded-3 mb-3">
@@ -207,9 +210,5 @@
         <!-- Modal -->
         @include('partials.calculator')
 
-        <script src="js/script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-                integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-        </script>
-
-    @endsection
+    </div>
+@endsection

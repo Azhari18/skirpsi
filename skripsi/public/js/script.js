@@ -309,20 +309,3 @@ function goToCheckOutTab() {
     const checkOutTab = new bootstrap.Tab(checkOut);
     checkOutTab.show();
 }
-
-
-var menuBtn = document.getElementById("menuBtn")
-var sideNav = document.getElementById("sideNav")
-var menu = document.getElementById("menu")
-sideNav.style.left == "-250px";
-
-menuBtn.onclick = function () {
-    if (sideNav.style.left == "-250px") {
-        sideNav.style.left = "0";
-        menu.src = "img/close.png"
-    } else {
-        sideNav.style.left = "-250px";
-        menu.src = "img/menu.png"
-    }
-
-}
