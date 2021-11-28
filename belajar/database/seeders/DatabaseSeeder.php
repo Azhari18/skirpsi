@@ -16,24 +16,24 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        User::factory(3)->create();
+        // User::factory(3)->create();
 
-        Category::create([
-            'name' => 'Web Programming',
-            'slug' => 'web-programing'
-        ]);
+        // Category::create([
+        //     'name' => 'Web Programming',
+        //     'slug' => 'web-programing'
+        // ]);
 
-        Category::create([
-            'name' => 'Web Design',
-            'slug' => 'web-design'
-        ]);
+        // Category::create([
+        //     'name' => 'Web Design',
+        //     'slug' => 'web-design'
+        // ]);
 
-        Category::create([
-            'name' => 'Personal',
-            'slug' => 'personal'
-        ]);
+        // Category::create([
+        //     'name' => 'Personal',
+        //     'slug' => 'personal'
+        // ]);
 
-        Post::factory(20)->create();
+        Post::factory(10)->create();
 
         // User::create([
         //     'name' => 'azhari arsyad' ,
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
         //     'excerpt' => 'Lorem ipsum pertama',
         //     'body' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus quisquam facere possimus nam molestiae, debitis quo vel quae exercitationem sed tempore voluptatibus, culpa quibusdam fugiat dolor commodi odio autem quis minima expedita. Quam minima modi quisquam et similique rem incidunt, ducimus necessitatibus nesciunt quaerat, officia possimus sint odio commodi eaque assumenda laboriosam pariatur optio autem dolores rerum? Amet nobis non reprehenderit dolore omnis in inventore, officia nam esse quaerat aspernatur maiores alias tenetur commodi, sed voluptatem similique sit labore minus quasi delectus. Corrupti eligendi sequi eius vel consectetur, dolor repudiandae, atque, consequuntur explicabo minus quas doloribus tempore pariatur libero unde!',
         //     'category_id' => 1,
-        //     'user_id' => 1
+        //     'user_id' => 8
         // ]);
 
         // Post::create([
