@@ -31,10 +31,10 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="img" class="form-label">Gambar Barang</label>
+                <label for="image" class="form-label">Gambar Barang</label>
                 <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
-                <input class="form-control  @error('img') is-invalid @enderror" type="file" id="img" name="img" onchange="previewImage()">
-                @error('img')
+                <input class="form-control  @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+                @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -58,21 +58,8 @@
     </div>
 
     <script>
-        const title = document.querySelector('#title');
-        const slug = document.querySelector('#slug');
-
-        title.addEventListener('change', function() {
-            fetch('/dashboard/posts/checkSlug?title=' + title.value)
-                .then(response => response.json())
-                .then(data => slug.value = data.slug)
-        });
-
-        document.addEventListener('trix-file-accept', function(e) {
-            e.preventDefalut();
-        })
-
         function previewImage() {
-            const image = document.querySelector('#img')
+            const image = document.querySelector('#image')
             const imgPreview = document.querySelector('.img-preview')
 
             imgPreview.style.display = 'block';

@@ -31,77 +31,78 @@ class DatabaseSeeder extends Seeder
             'category_id' => 1,
             'name' => 'indomie 1',
             'price' => 1000,
-            'img' => 'indomie.jpg'
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 2',
             'price' => 2000,
-            'img' => 'indomie.jpg'
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 3',
             'price' => 3000,
-            'img' => 'indomie.jpg'
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 4',
             'price' => 4000,
-            'img' => 'indomie.jpg'
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 5',
             'price' => 5000,
-            'img' => 'indomie.jpg'
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 6',
-            'price' => 80000,
-            'img' => 'indomie.jpg'
+            'price' => 6000,
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 7',
-            'price' => 8000,
-            'img' => 'indomie.jpg'
+            'price' => 7000,
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 8',
             'price' => 8000,
-            'img' => 'indomie.jpg'
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
             'name' => 'indomie 9',
-            'price' => 8000,
-            'img' => 'indomie.jpg'
+            'price' => 9000,
+            'image' => 'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 2,
-            'name' => 'susu indomie',
-            'price' => 1000, 'img' =>
+            'name' => 'susu',
+            'price' => 5000, 
+            'image' =>
             'indomie.jpg'
         ]);
 
         Good::create([
             'category_id' => 1,
-            'name' => 'indomie seleraku',
-            'price' => 8000,
-            'img' => 'indomie.jpg'
+            'name' => 'teh pucuk',
+            'price' => 3500,
+            'image' => 'indomie.jpg'
         ]);
     }
 }

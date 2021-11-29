@@ -44,12 +44,12 @@ class DashboardGoodController extends Controller
         $validatedData = $request->validate([
             'name' => ['required', 'max:255', 'unique:goods'],
             'price' => ['required', 'max:6'],
-            'img' => ['image', 'file', 'max:1024'],
+            'image' => ['image', 'file', 'max:1024'],
             'category_id' => ['required']
         ]);
 
-        if($request->file('img')){
-            $validatedData['img'] = $request->file('img')->store('post-images');
+        if($request->file('image')){
+            $validatedData['image'] = $request->file('image')->store('post-images');
         }
 
         Good::create($validatedData);
@@ -92,7 +92,7 @@ class DashboardGoodController extends Controller
     {
         $rules = [
             'price' => ['required', 'max:6'],
-            'img' => ['image', 'file', 'max:1024'],
+            'image' => ['image', 'file', 'max:1024'],
             'category_id' => ['required']
         ];
 
@@ -102,11 +102,11 @@ class DashboardGoodController extends Controller
 
         $validatedData = $request->validate($rules);
 
-        if($request->file('img')){
+        if($request->file('image')){
             if($request->oldImage){
                 Storage::delete($request->oldImage);
             }
-            $validatedData['img'] = $request->file('img')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('post-images');
         }
 
         Good::where('id', $good->id)->update($validatedData);
@@ -121,8 +121,8 @@ class DashboardGoodController extends Controller
      */
     public function destroy(Good $good)
     {
-        if($good->img){
-            Storage::delete($good->img);
+        if($good->image){
+            Storage::delete($good->image);
         }
         Good::destroy($good->id);
         return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil dihapus!');

@@ -70,16 +70,16 @@
                                 @if ($good->category->name == 'Food')
                                     <div class="col">
                                         <div class="card"
-                                            onclick="checkId({{ $good['id'] }}, '{{ $good['name'] }}', {{ $good['price'] }}, 'img/{{ $good['img'] }}');">
-                                            @if ($good->img)
+                                            onclick="checkId({{ $good['id'] }}, '{{ $good['name'] }}', {{ $good['price'] }}, '{{ asset('storage/' . $good->image) }}')">
+                                            @if ($good->image)
                                                 <div style="max-height: 150px; overflow:hidden">
-                                                    <img src="{{ asset('storage/' . $good->img) }}" alt="..."
+                                                    <img src="{{ asset('storage/' . $good->image) }}" alt="..."
                                                         draggable="false" class="card-img-top">
                                                 </div>
 
                                             @else
                                                 <div style="max-height: 150px; overflow:hidden">
-                                                    <img src='img/indomie.jpg' draggable="false" class="card-img-top"
+                                                    <img src='img/default.jpg' draggable="false" class="card-img-top"
                                                         alt="...">
                                                 </div>
                                             @endif
@@ -103,9 +103,19 @@
                                 @if ($good->category->name == 'Drink')
                                     <div class="col">
                                         <div class="card"
-                                            onclick="checkId({{ $good['id'] }}, '{{ $good['name'] }}', {{ $good['price'] }}, 'img/{{ $good['img'] }}');">
-                                            <img src='img/{{ $good['img'] }}' draggable="false" class="card-img-top"
-                                                alt="...">
+                                            onclick="checkId({{ $good['id'] }}, '{{ $good['name'] }}', {{ $good['price'] }}, '{{ asset('storage/' . $good->image) }}')">
+                                            @if ($good->image)
+                                                <div style="max-height: 150px; overflow:hidden">
+                                                    <img src="{{ asset('storage/' . $good->image) }}" alt="..."
+                                                        draggable="false" class="card-img-top">
+                                                </div>
+
+                                            @else
+                                                <div style="max-height: 150px; overflow:hidden">
+                                                    <img src='img/default.jpg' draggable="false" class="card-img-top"
+                                                        alt="...">
+                                                </div>
+                                            @endif
                                             <div class="card-body">
                                                 <h5 class="card-title">{{ $good['name'] }}</h5>
                                                 <p class="card-text fw-bold">{{ $good['price'] }}</p>

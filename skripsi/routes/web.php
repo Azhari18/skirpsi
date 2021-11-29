@@ -28,8 +28,10 @@ Route::get('/', function () {
 // Goods Page
 Route::resource('/dashboard/goods', DashboardGoodController::class);
 
+// Store goods data
+Route::post('/good', [GoodController::class, 'store']);
+
 // Transaction Page
 Route::get('/transaction', [TransactionController::class, 'index']);
 
-// Store goods data
-Route::post('/good', [GoodController::class, 'store']);
+

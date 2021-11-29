@@ -91,7 +91,8 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     const imgTag = document.createElement('img');
 
     // className w-25 for img 
-    imgTag.className = 'w-25 rounded border border-dark';
+    imgTag.className = 'w-25 rounded border';
+    imgTag.style = "height: 40px; overflow:hidden"
 
     // assign the src to img tag
     imgTag.src = itemImage;

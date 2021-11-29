@@ -32,16 +32,16 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="img" class="form-label">Gambar Barang</label>
-                <input type="hidden" name="oldImage" value="{{ $good->img }}">
-                @if ($good->img)
-                    <img src="{{ asset('storage/' . $good->img) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" alt="">
+                <label for="image" class="form-label">Gambar Barang</label>
+                <input type="hidden" name="oldImage" value="{{ $good->image }}">
+                @if ($good->image)
+                    <img src="{{ asset('storage/' . $good->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" alt="">
                 @else
                     <img class="img-preview img-fluid mb-3 col-sm-5" alt="">
                 @endif
 
-                <input class="form-control  @error('img') is-invalid @enderror" type="file" id="img" name="img" onchange="previewImage()">
-                @error('img')
+                <input class="form-control  @error('image') is-invalid @enderror" type="file" id="image" name="image" onchange="previewImage()">
+                @error('image')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
@@ -66,7 +66,7 @@
 
     <script>
         function previewImage() {
-            const image = document.querySelector('#img')
+            const image = document.querySelector('#image')
             const imgPreview = document.querySelector('.img-preview')
 
             imgPreview.style.display = 'block';

@@ -18,7 +18,7 @@ class CreateGoodsTable extends Migration
             $table->foreignId('category_id');
             $table->string('name');
             $table->integer('price');
-            $table->string('img');
+            $table->string('image');
             $table->timestamps();
         });
     }
