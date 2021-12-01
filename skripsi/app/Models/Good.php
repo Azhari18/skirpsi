@@ -8,14 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Good extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    // protected $guarded = ['id'];
 
-    // protected $fillable = [
-    //     'category_id',
-    //     'name',
-    //     'price',
-    //     'img',
-    //   ];
+    protected $fillable = [
+        'id',
+        'category_id',
+        'name',
+        'price',
+        'image',
+      ];
 
     public function category()
     {

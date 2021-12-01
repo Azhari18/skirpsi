@@ -42,7 +42,7 @@ Route::get('/about', function () {
 Route::get('/posts', [PostController::class, 'index']);
 
 // Post Page
-Route::get('posts/{post:slug}', [PostController::class, 'show']);
+Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
 // Categories Page
 Route::get('/categories', function () {

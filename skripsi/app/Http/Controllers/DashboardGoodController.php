@@ -42,6 +42,7 @@ class DashboardGoodController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
+            'id' => ['unique:goods'],
             'name' => ['required', 'max:255', 'unique:goods'],
             'price' => ['required', 'max:6'],
             'image' => ['image', 'file', 'max:1024'],
@@ -50,6 +51,8 @@ class DashboardGoodController extends Controller
 
         if($request->file('image')){
             $validatedData['image'] = $request->file('image')->store('post-images');
+        } else {
+            $validatedData['image'] = 'post-images/default.png';
         }
 
         Good::create($validatedData);

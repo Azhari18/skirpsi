@@ -1,6 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardCustomerController;
+use App\Http\Controllers\DashboardDebtController;
 use App\Http\Controllers\DashboardGoodController;
+use App\Http\Controllers\DashboardTransactionController;
+use App\Http\Controllers\DashboardTransactionDetailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GoodController;
 use App\Http\Controllers\TransactionController;
@@ -28,10 +32,25 @@ Route::get('/', function () {
 // Goods Page
 Route::resource('/dashboard/goods', DashboardGoodController::class);
 
+// Transactions Page
+Route::resource('/dashboard/transactions', DashboardTransactionController::class);
+
+// Transaction Details Page
+Route::resource('/dashboard/transactiondetails', DashboardTransactionDetailController::class);
+
+
+
+// Debts Page
+Route::resource('/dashboard/debts', DashboardDebtController::class);
+
+// Customers Page
+Route::resource('/dashboard/customers', DashboardCustomerController::class);
+
 // Store goods data
 Route::post('/good', [GoodController::class, 'store']);
 
 // Transaction Page
-Route::get('/transaction', [TransactionController::class, 'index']);
+Route::resource('/transaction', TransactionController::class);
+
 
 

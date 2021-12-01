@@ -17,24 +17,24 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Harga</th>
-                    <th scope="col">Kategori</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Sub Total</th>
+                    <th scope="col">Id Barang</th>
+                    <th scope="col">Id Transaksi</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach ($goods as $good)
+                @foreach ($details as $detail)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $good->id }}</td>
-                        <td>{{ $good->name }}</td>
-                        <td>{{ $good->price }}</td>
-                        <td>{{ $good->category->name }}</td>
+                        <td>{{ $detail->quantity }}</td>
+                        <td>{{ $detail->sub_total }}</td>
+                        <td>{{ $detail->good_id }}</td>
+                        <td>{{ $detail->transaction_id }}</td>
                         <td>
-                            <a href="/dashboard/goods/{{ $good->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-                            <form action="/dashboard/goods/{{ $good->id }}" method="post" class="d-inline">
+                            <a href="/dashboard/transactiondetails{{ $detail->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                            <form action="/dashboard/transactiondetails{{ $detail->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button class="badge bg-danger border-0" onclick="return confirm('Apakah anda yakin?')">
