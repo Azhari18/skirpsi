@@ -20,8 +20,9 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Total</th>
-                    <th scope="col">Customer Paid</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Total Harga</th>
+                    <th scope="col">Jumlah Uang Pembayaran</th>
                     <th scope="col">Kembalian</th>
                     <th scope="col">Status</th>
                     <th scope="col">Tanggal</th>
@@ -32,6 +33,7 @@
                 @foreach ($transactions as $transaction)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $transaction->id }}</td>
                         <td>{{ $transaction->total }}</td>
                         <td>{{ $transaction->customer_paid }}</td>
                         <td>{{ $transaction->change }}</td>
@@ -40,7 +42,7 @@
                         <td>                            
                             {{-- <a href="/dashboard/transactiondetails/{{ $transaction->id }}" class="badge bg-info"><span data-feather="eye"></span></a>                                                         --}}
                             <a href="/dashboard/transactiondetails?transaction_id={{ $transaction->id }}" class="badge bg-info"><span data-feather="eye"></span></a>                                                        
-                            <a href="/dashboard/transactions/{{ $transaction->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                            {{-- <a href="/dashboard/transactions/{{ $transaction->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a> --}}
                             <form action="/dashboard/transactions/{{ $transaction->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf

@@ -5,8 +5,8 @@
 
             <!-- Start Header -->
             <h5 class="d-flex justify-content-between align-items-center">
-                <span>Order</span>
-                <button onclick="orderbasketClear()" class="btn btn-sm btn-danger rounded-pill">Clear</button>
+                <span>Keranjang</span>
+                <button onclick="orderbasketClear()" class="btn btn-sm btn-danger rounded-pill">Kosongkan</button>
                 {{-- <span></span> --}}
             </h5>
             <hr>
@@ -23,11 +23,11 @@
 
                 <!-- Start Summary  -->
                 <li class="d-flex justify-content-between align-items-center">
-                    <big>Total Items: </big>
+                    <big>Jumlah Barang: </big>
                     <big id="totalItems" class=" fw-bold card-text">0</big>
                 </li>
                 <li class="d-flex justify-content-between align-items-center">
-                    <big>Total: </big>
+                    <big>Total Harga: </big>
                     <big class="fw-bold">Rp. <span id="totalCost" class="card-text">0</span></big>
                 </li>
                 <!-- End Summary  -->
@@ -36,7 +36,7 @@
                 <li>
                     <hr>
                     <button disabled id="checkOutButton" onclick="goToCheckOutTab()"
-                        class="btn btn-primary btn-lg w-100 rounded-pill">CHECK OUT</button>
+                        class="btn btn-primary btn-lg w-100 rounded-pill">Pembayaran</button>
                 </li>
                 <!-- End Check Out Button -->
 

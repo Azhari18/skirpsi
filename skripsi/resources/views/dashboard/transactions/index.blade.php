@@ -17,13 +17,13 @@
 
             <!-- Start Left Side -->
             <div class="col-sm-8">
-                <p class="d-flex justify-content-between align-items-center fw-bold">Order #001
-                    <small class="text-muted">
+                <p class="d-flex justify-content-end align-items-center fw-bold">
+                    <small>
                         <span id="day"></span>,
                         <span id="date"></span>
                         <span id="month"></span>
-                        <span id="year"></span>,
-                        <span id="jam"></span></small>
+                        <span id="year"></span>                        
+                    </small>
                 </p>
 
                 <div class="row justify-content-start mb-3">
@@ -37,9 +37,9 @@
                     <div class="col-md-11 ms-3">
                         <form action="/transaction">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search..." name="search"
+                                <input type="text" class="form-control" placeholder="Pencarian..." name="search"
                                     value="{{ request('search') }}">
-                                <button class="btn btn-danger" type="submit">Search</button>
+                                <button class="btn btn-danger" type="submit">Cari</button>
                             </div>
                         </form>
                     </div>
@@ -53,17 +53,17 @@
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active rounded-pill" id="pills-all-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all"
-                                    aria-selected="true">ALL</button>
+                                    aria-selected="true">Semua</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link rounded-pill" id="pills-food-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-food" type="button" role="tab" aria-controls="pills-food"
-                                    aria-selected="false">FOOD</button>
+                                    aria-selected="false">Makanan</button>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link rounded-pill" id="pills-drink-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink"
-                                    aria-selected="false">DRINK</button>
+                                    aria-selected="false">Minuman</button>
                             </li>
                             <li class="nav-item d-none" role="presentation">
                                 <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill"

@@ -30,13 +30,13 @@
                     <div class="col-4 mb-3" onclick="calculatorInsert('.')"><button
                             class="btn w-100 rounded-pill text-center btn-outline-dark">.</button></div>
                     <div class="col-4 mb-3" onclick="calculatorCancel()"><button
-                            class="btn w-100 rounded-pill text-center btn-danger">C</button></div>
+                            class="btn w-100 rounded-pill text-center btn-danger">Kosongkan</button></div>
                 </div>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12 mb-3"><button onclick="exactAmountButton()"
-                            class="btn w-100 rounded-pill text-center btn-warning">Exact Amount (<span
+                            class="btn w-100 rounded-pill text-center btn-warning">Uang pas (<span
                                 id="exactAmountSpan"></span>)</button>
                     </div>
                     <div class="col-3 mb-3"><button onclick="denominationButton(1000)"
@@ -58,9 +58,9 @@
 
             <div class="modal-footer">
                 <button type="button" onclick="calculatorCancel()" class="btn btn-secondary"
-                    data-bs-dismiss="modal">Close</button>
+                    data-bs-dismiss="modal">Tutup</button>
                 <button type="button" onclick="confirmPaidButton()" id="confirmPaid" disabled class="btn btn-primary"
-                    data-bs-dismiss="modal">Confirm</button>
+                    data-bs-dismiss="modal">Konfirmasi</button>
             </div>
         </div>
     </div>

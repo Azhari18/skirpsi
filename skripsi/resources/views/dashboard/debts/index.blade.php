@@ -17,8 +17,12 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Customer_id</th>
-                    <th scope="col">Transaction_id</th>                    
+                    <th scope="col">Nama pembeli</th>
+                    <th scope="col">Id Transaksi</th>      
+                    <th scope="col">Total Harga</th>
+                    <th scope="col">Jumlah Uang Pembayaran</th>
+                    <th scope="col">Kembalian</th>                    
+                    <th scope="col">Tanggal</th>              
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -26,8 +30,12 @@
                 @foreach ($debts as $debt)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $debt->customer_id }}</td>
-                        <td>{{ $debt->transaction_id }}</td>                        
+                        <td>{{ $debt->customer->name }}</td>
+                        <td>{{ $debt->transaction_id }}</td>       
+                        <td>{{ $debt->transaction->total }}</td>
+                        <td>{{ $debt->transaction->customer_paid }}</td>
+                        <td>{{ $debt->transaction->change }}</td>
+                        <td>{{ $debt->transaction->created_at }}</td>                                      
                         <td>
                             <a href="/dashboard/debts/{{ $debt->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
                             <form action="/dashboard/debts/{{ $debt->id }}" method="post" class="d-inline">

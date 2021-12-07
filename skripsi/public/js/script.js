@@ -1,27 +1,13 @@
 const d = new Date();
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
-    "November", "December"
+const months = ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "July", "Augustus", "September", "Oktober",
+    "November", "Desember"
 ];
-const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const days = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jumat", "Sabtu"];
 
 document.getElementById('day').innerText = days[d.getDay()];
 document.getElementById('date').innerText = d.getDate();
 document.getElementById('month').innerText = months[d.getMonth()];
 document.getElementById('year').innerText = d.getFullYear();
-
-// var jam = document.getElementById('jam');
-
-setInterval(time, 1000);
-
-function time() {
-    var h = d.getHours();
-    var m = d.getMinutes();
-    var s = d.getSeconds();
-    jam.textContent = ("0" + h).substr(-2) + ":" + ("0" + m).substr(-2) + ":" + ("0" + s).substr(-2);
-}
-
-// document.getElementById('hour').innerText = d.getHours();
-// document.getElementById('minute').innerText = d.getMinutes();
 
 const orderIdArray = [];
 const orderQuantity = [];

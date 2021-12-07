@@ -74,7 +74,10 @@ class DashboardDebtController extends Controller
      */
     public function edit(Debt $debt)
     {
-        //
+        return view('dashboard.debts.edit', [
+            'debt' => $debt,
+            'customers' => Customer::all()
+        ]);
     }
 
     /**
@@ -86,7 +89,15 @@ class DashboardDebtController extends Controller
      */
     public function update(Request $request, Debt $debt)
     {
-        //
+        $rules = [
+            'transaction_id' => ['required'],            
+            'customer_id' => ['required']
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        Debt::where('id', $debt->id)->update($validatedData);
+        return redirect('/dashboard/debts')->with('success', 'Data Hutang telah diperbaharui');
     }
 
     /**
@@ -96,7 +107,9 @@ class DashboardDebtController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Debt $debt)
-    {
-        //
+    {        
+        Debt::destroy($debt->id);
+        Transaction::where('id', $debt->transaction_id)->update(['description' => 'Lunas']);
+        return redirect('/dashboard/debts')->with('success', 'Data Hutang telah berhasil dihapus!');
     }
 }

@@ -18,12 +18,12 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         Category::create([
-            'name' => 'Food'
+            'name' => 'Makanan'
         ]);
 
         Category::create(
             [
-                'name' => 'Drink'
+                'name' => 'Minuman'
             ]
         );
 

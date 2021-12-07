@@ -4,13 +4,13 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">
                     <span data-feather="home"></span>
-                    Dashboard
+                    Dasbor
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/transaction">
                     <span data-feather="shopping-cart"></span>
-                    Keranjang
+                    Transaksi
                 </a>
             </li>
             <li class="nav-item">
