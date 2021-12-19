@@ -4,6 +4,9 @@
             <div class="modal-body">
                 <input id="calculatorScreenAmount" type="text"
                     class="mb-3 bg-dark w-100 text-end form-control form-control-lg text-white" disabled value="0">
+                <input id="calculatorScreenValue" type="text" value="0" 
+                    class="mb-3 bg-dark w-100 text-end form-control form-control-lg text-white" disabled value="0">
+
                 <div class="row">
                     <div class="col-4 mb-3" onclick="calculatorInsert('9')"><button
                             class="btn w-100 rounded-pill text-center btn-outline-dark">9</button></div>
@@ -27,8 +30,8 @@
                             class="btn w-100 rounded-pill text-center btn-outline-dark">0</button></div>
                     <div class="col-4 mb-3" onclick="calculatorInsert('00')"><button
                             class="btn w-100 rounded-pill text-center btn-outline-dark">00</button></div>
-                    <div class="col-4 mb-3" onclick="calculatorInsert('.')"><button
-                            class="btn w-100 rounded-pill text-center btn-outline-dark">.</button></div>
+                    <div class="col-4 mb-3" onclick="calculatorInsert('000')"><button
+                            class="btn w-100 rounded-pill text-center btn-outline-dark">000</button></div>
                     <div class="col-4 mb-3" onclick="calculatorCancel()"><button
                             class="btn w-100 rounded-pill text-center btn-danger">Kosongkan</button></div>
                 </div>
@@ -36,7 +39,7 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12 mb-3"><button onclick="exactAmountButton()"
-                            class="btn w-100 rounded-pill text-center btn-warning">Uang pas (<span
+                            class="btn w-100 rounded-pill text-center btn-warning">Uang pas (Rp.<span
                                 id="exactAmountSpan"></span>)</button>
                     </div>
                     <div class="col-3 mb-3"><button onclick="denominationButton(1000)"

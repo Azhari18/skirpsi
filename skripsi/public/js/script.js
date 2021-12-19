@@ -17,7 +17,7 @@ var cost;
 let i = 0;
 
 function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function checkId(itemId, itemname, itemprice, itemimage) {
@@ -190,6 +190,7 @@ function costItems() {
 
 function orderbasketClear() {
     var orderlist = document.getElementById('orderlist');
+    orderlist.innerHTML = '';
     orderItemIdArray.length = 0
     orderQuantity.length = 0;
     orderPriceArray.length = 0;
@@ -213,23 +214,25 @@ function deleteItem(id, button) {
 };
 
 const calculatorScreenAmount = document.getElementById('calculatorScreenAmount');
+const calculatorScreenValue = document.getElementById('calculatorScreenValue');
+
 
 function calculatorInsert(number) {
-    if (calculatorScreenAmount.value == 0 && number == '00') {
-        calculatorScreenAmount.value = '0.';
-    } else if (calculatorScreenAmount.value == 0 && number == '0') {
-        calculatorScreenAmount.value = '0.';
-    } else if (calculatorScreenAmount.value.includes('.') == true && number == '.') {
-        calculatorScreenAmount.value = calculatorScreenAmount.value;
+    if (calculatorScreenAmount.value == 0 && number == '0') {
+        calculatorScreenAmount.value = '0';
+    } else if (calculatorScreenAmount.value == 0 && number == '00') {
+        calculatorScreenAmount.value = '0';
+    } else if (calculatorScreenAmount.value == 0 && number == '000') {
+        calculatorScreenAmount.value = '0';
     } else if (calculatorScreenAmount.value == '0' && parseInt(number) > 0) {
         calculatorScreenAmount.value = number;
+        calculatorScreenValue.value = number;
     } else {
         calculatorScreenAmount.value += number;
+        calculatorScreenValue.value += number;
+        calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);
     }
 
-    if (calculatorScreenAmount.value == '.') {
-        calculatorScreenAmount.value = '0.';
-    }
 
     enableConfirmPaidButton();
 };
@@ -240,7 +243,8 @@ function calculatorCancel() {
 };
 
 function denominationButton(bill) {
-    calculatorScreenAmount.value = parseFloat(calculatorScreenAmount.value) + bill;
+    calculatorScreenValue.value = parseInt(calculatorScreenValue.value) + bill;
+    calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);
     enableConfirmPaidButton();
 }
 
@@ -253,17 +257,17 @@ function enableConfirmPaidButton() {
 };
 
 function confirmPaidButton() {
-    customer_paid.value = calculatorScreenAmount.value;
-    change.value = calculatorScreenAmount.value - cost;
-    customeramountpaid.value = numberWithCommas(calculatorScreenAmount.value);
-    customeramountchange.value = numberWithCommas(parseInt(calculatorScreenAmount.value) - cost);
-    document.getElementById('calculatorModal').disabled = true;
+    customer_paid.value = calculatorScreenValue.value;
+    change.value = calculatorScreenValue.value - cost;
+    customeramountpaid.value = calculatorScreenAmount.value;
+    customeramountchange.value = numberWithCommas(parseInt(calculatorScreenValue.value) - cost);
+    // document.getElementById('calculatorModal').disabled = true;
 }
 
 const amount = document.getElementById('amount');
 
 function exactAmountButton() {
-    calculatorScreenAmount.value = parseInt(amount.value) * 1000;
+    calculatorScreenAmount.value = numberWithCommas(parseInt(amount.value) * 1000);
     enableConfirmPaidButton();
 };
 
