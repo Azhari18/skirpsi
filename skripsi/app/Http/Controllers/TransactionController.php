@@ -6,6 +6,7 @@ use App\Models\Good;
 use App\Models\Transaction;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Customer;
 use App\Models\TransactionDetail;
 use SebastianBergmann\Environment\Console;
@@ -27,7 +28,8 @@ class TransactionController extends Controller
         }
 
         return view('dashboard.transactions.index', [
-            "goods" => $goods->get()
+            "goods" => $goods->get(),
+            'categories' => Category::all()
         ]);
     }
 

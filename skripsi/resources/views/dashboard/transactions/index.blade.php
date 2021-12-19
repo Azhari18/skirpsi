@@ -55,16 +55,14 @@
                                     data-bs-target="#pills-all" type="button" role="tab" aria-controls="pills-all"
                                     aria-selected="true">Semua</button>
                             </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-pill" id="pills-food-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-food" type="button" role="tab" aria-controls="pills-food"
-                                    aria-selected="false">Makanan</button>
-                            </li>
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link rounded-pill" id="pills-drink-tab" data-bs-toggle="pill"
-                                    data-bs-target="#pills-drink" type="button" role="tab" aria-controls="pills-drink"
-                                    aria-selected="false">Minuman</button>
-                            </li>
+                            @foreach ($categories as $category)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link rounded-pill" id="pills-{{ $category->name }}-tab"
+                                        data-bs-toggle="pill" data-bs-target="#pills-{{ $category->name }}" type="button"
+                                        role="tab" aria-controls="pills-{{ $category->name }}"
+                                        aria-selected="false">{{ $category->name }}</button>
+                                </li>
+                            @endforeach
                             <li class="nav-item d-none" role="presentation">
                                 <button class="nav-link rounded-pill" id="pills-checkout-tab" data-bs-toggle="pill"
                                     data-bs-target="#pills-checkout" type="button" role="tab" aria-controls="pills-checkout"
@@ -78,9 +76,9 @@
                 <!-- Start Content -->
                 <div class="tab-content" id="pills-tabContent">
                     @php
-                        const priceRp = 0 ;
+                        const priceRp = 0;
                     @endphp
-                    
+
                     @if ($goods->count())
                         <!-- Start All Content -->
                         <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
@@ -93,34 +91,25 @@
                         </div>
                         <!-- End All Content -->
 
-                        <!-- Start Food Content -->
-                        <div class="tab-pane fade show" id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
-                            <div class="row row-cols-md-4 g-4">
-                                @foreach ($goods as $good)
-                                    @if ($good->category->name == 'Makanan')
-                                        @include('dashboard.transactions.partials.card')
-                                    @endif
-                                @endforeach
+                        {{-- Start Category Content  --}}
+                        @foreach ($categories as $category)
+                            <div class="tab-pane fade" id="pills-{{ $category->name }}" role="tabpanel" aria-labelledby="pills-{{ $category->name }}-tab">
+                                <div class="row row-cols-1 row-cols-md-4 g-4">
+                                    @foreach ($goods as $good)
+                                        @if ($good->category->name == $category->name)
+                                            @include('dashboard.transactions.partials.card')
+                                        @endif
+                                    @endforeach
+                                </div>
                             </div>
-                        </div>
-                        <!-- End Food Content -->
-
-                        <!-- Start Drink Content -->
-                        <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-drink-tab">
-                            <div class="row row-cols-1 row-cols-md-4 g-4">
-                                @foreach ($goods as $good)
-                                    @if ($good->category->name == 'Minuman')
-                                        @include('dashboard.transactions.partials.card')
-                                    @endif
-                                @endforeach
-                            </div>
-                        </div>
-                        <!-- End Drink Content -->
+                        @endforeach
+                        {{-- End Category Content  --}}                        
                     @else
                         <p class="text-center fs-4">Barang tidak ditemukan</p>
                         <div class="row justify-content-center">
-                            <a href="/dashboard/goods/create" class="btn btn-primary btn-lg mb-3 col-lg-4">Tambahkan data barang</a>
-                        </div>  
+                            <a href="/dashboard/goods/create" class="btn btn-primary btn-lg mb-3 col-lg-4">Tambahkan data
+                                barang</a>
+                        </div>
                     @endif
                     @include('dashboard.transactions.partials.checkout')
 
