@@ -41,18 +41,18 @@
                             {{ 'Rp ' . number_format($transaction->total, 0, ',', '.') }}
                         </td>
                         <td>
-                            {{ 'Rp ' . number_format($transaction->customer_paid, 0, ',', '.') }}                            
+                            {{ 'Rp ' . number_format($transaction->customer_paid, 0, ',', '.') }}
                         </td>
-                        <td>                           
-                            {{ 'Rp ' . number_format($transaction->change, 0, ',', '.') }}                        
+                        <td class="{{ $transaction->description == 'Lunas' ? 'text-success' : 'text-danger' }} fw-bold">
+                            {{ 'Rp ' . number_format($transaction->change, 0, ',', '.') }}
                         </td>
-                        <td>{{ $transaction->description }}</td>
+                        <td class="{{ $transaction->description == 'Lunas' ? 'text-success' : 'text-danger' }} fw-bold">
+                            {{ $transaction->description }}
+                        </td>
                         <td>{{ $transaction->created_at }}</td>
                         <td>
-                            {{-- <a href="/dashboard/transactiondetails/{{ $transaction->id }}" class="badge bg-info"><span data-feather="eye"></span></a> --}}
                             <a href="/dashboard/transactiondetails?transaction_id={{ $transaction->id }}"
                                 class="badge bg-info"><span data-feather="eye"></span></a>
-                            {{-- <a href="/dashboard/transactions/{{ $transaction->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a> --}}
                             <form action="/dashboard/transactions/{{ $transaction->id }}" method="post"
                                 class="d-inline">
                                 @method('delete')

@@ -52,6 +52,7 @@ class DashboardDebtController extends Controller
         ]);
 
         Debt::create($validatedData);
+        Transaction::where('id', $request->transaction_id)->update(['description' => 'Hutang']);        
         return redirect('/dashboard/debts')->with('success', 'Data Hutang telah berhasil disimpan!');
     }
 
