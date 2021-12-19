@@ -47,7 +47,7 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
 
     // create the li tag 
     const orderitem = document.createElement('li');
-    orderitem.className = 'd-flex justify-content-between align-items-center'
+    orderitem.className = 'd-flex justify-content-end align-items-center'
 
     // start price ===============================
     // create a span for price 
@@ -57,23 +57,12 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     priceSpan.className = 'text-danger';
 
     // create the text node for itemPrice
-    const price = document.createTextNode(' Rp. ' + itemPrice);
+    const price = document.createTextNode(' Rp ' + numberWithCommas(itemPrice));
 
     // add price text into span
     priceSpan.appendChild(price);
     // end price =================================
 
-    // start image ===============================
-    // create element image 
-    const imgTag = document.createElement('img');
-
-    // className w-25 for img 
-    imgTag.className = 'w-25 rounded border';
-    imgTag.style = "height: 40px; overflow:hidden"
-
-    // assign the src to img tag
-    imgTag.src = itemImage;
-    // end image =================================
 
     // create the text node for itemName
     const name = document.createTextNode(' ' + itemName);
@@ -81,9 +70,6 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     // start combine (img + itemName + itemPrice) ===============================
     // create a span  
     const leftSideSpan = document.createElement('span');
-
-    // attach or append the img to left span
-    leftSideSpan.appendChild(imgTag);
 
     // attach or append itemname left to span
     leftSideSpan.appendChild(name);
@@ -107,9 +93,9 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     const amountItemtext = document.createTextNode('1');
     const decrementbuttontext = document.createTextNode('-');
 
-    incrementButton.className = 'btn btn-success rounded-pill px-3 fw-bold';
+    incrementButton.className = 'btn btn-success rounded-pill ms-1';
     amountItemSpan.className = 'px-3 fw-bold item' + i;
-    decrementButton.className = 'btn btn-danger rounded-pill px-3 fw-bold';
+    decrementButton.className = 'btn btn-danger rounded-pill ms-1';
 
     incrementButton.setAttribute('onclick', 'quantity(' + i + ', 1, this)');
     decrementButton.setAttribute('onclick', 'quantity(' + i + ', -1, this)');
@@ -184,7 +170,8 @@ function costItems() {
 
         const costRp = numberWithCommas(cost);
         document.getElementById('totalCost').innerText = costRp;
-        document.getElementById('amount').value = costRp;
+        document.getElementById('amountScreen').value = 'Rp ' + costRp;
+        document.getElementById('amount').value = cost;
     }
 };
 
@@ -239,6 +226,7 @@ function calculatorInsert(number) {
 
 function calculatorCancel() {
     calculatorScreenAmount.value = '0';
+    calculatorScreenValue.value = '0';
     enableConfirmPaidButton();
 };
 
@@ -250,24 +238,31 @@ function denominationButton(bill) {
 
 function enableConfirmPaidButton() {
     document.getElementById('confirmPaid').disabled = true;
-    if (parseFloat(calculatorScreenAmount.value) >= parseFloat(amount.value)) {
+    if (calculatorScreenValue.value != '0') {
         document.getElementById('confirmPaid').disabled = false;
         document.getElementById('save').disabled = false;
     }
 };
 
 function confirmPaidButton() {
+    var kembalian = parseInt(calculatorScreenValue.value) - cost;
     customer_paid.value = calculatorScreenValue.value;
-    change.value = calculatorScreenValue.value - cost;
-    customeramountpaid.value = calculatorScreenAmount.value;
-    customeramountchange.value = numberWithCommas(parseInt(calculatorScreenValue.value) - cost);
+    change.value = kembalian;
+    customeramountpaid.value = 'Rp ' + calculatorScreenAmount.value;
+    customeramountchange.value = 'Rp ' + numberWithCommas(kembalian);
+    if(kembalian < 0){
+        customeramountchange.className = 'rounded-pill text-center form-control form-control-lg fw-bold text-danger';
+    } else {
+        customeramountchange.className = 'rounded-pill text-center form-control form-control-lg fw-bold text-success';
+    }
     // document.getElementById('calculatorModal').disabled = true;
 }
 
 const amount = document.getElementById('amount');
 
 function exactAmountButton() {
-    calculatorScreenAmount.value = numberWithCommas(parseInt(amount.value) * 1000);
+    calculatorScreenValue.value = parseInt(amount.value);
+    calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);
     enableConfirmPaidButton();
 };
 

@@ -26,7 +26,7 @@
                 </li>
                 <li class="d-flex justify-content-between align-items-center">
                     <big>Total Harga: </big>
-                    <big class="fw-bold">Rp. <span id="totalCost" class="card-text">0</span></big>
+                    <big class="fw-bold">Rp <span id="totalCost" class="card-text">0</span></big>
                 </li>
                 <!-- End Summary  -->
 

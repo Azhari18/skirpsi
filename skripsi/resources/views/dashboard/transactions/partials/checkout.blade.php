@@ -11,8 +11,9 @@
     <div class="row mb-3">
         <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Total Harga Barang</label>
         <div class="col-sm-8">
-            <input type="text" class="rounded-pill text-center form-control form-control-lg" id="amount"
-                placeholder="amount" disabled>
+            <input type="text" class="rounded-pill text-center form-control form-control-lg" id="amountScreen"
+                placeholder="amountScreen" disabled>
+            <input type="text" id="amount" hidden>
         </div>
     </div>
     <div class="row mb-3">
@@ -34,7 +35,7 @@
         <label for="colFormLabelLg" class="col-sm-4 col-form-label col-form-label-lg">Kembalian</label>
         <div class="col-sm-8">
             <input type="text"
-                class="rounded-pill text-center form-control form-control-lg text-danger fw-bold"
+                class="rounded-pill text-center form-control form-control-lg fw-bold"
                 id="customeramountchange" placeholder="kembalian" disabled>
         </div>
     </div>

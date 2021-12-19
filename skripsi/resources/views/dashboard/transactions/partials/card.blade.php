@@ -14,7 +14,12 @@
 
         <div class="card-body">
             <h5 class="card-title">{{ $good['name'] }}</h5>
-            <p class="card-text fw-bold">Rp. {{ $good['price'] }}</p>
+            <p class="card-text fw-bold">Rp
+                @php
+                    $price = number_format($good['price'],0,",",".") ;
+                    echo $price
+                @endphp
+            </p>
         </div>
     </div>
 </div>
