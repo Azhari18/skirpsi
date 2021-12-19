@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Models\Debt;
 use Illuminate\Http\Request;
 
 class DashboardCustomerController extends Controller
@@ -102,8 +103,13 @@ class DashboardCustomerController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(Customer $customer)
-    {        
-        Customer::destroy($customer->id);
-        return redirect('/dashboard/customers')->with('success', 'Data customer telah berhasil dihapus!');
+    {    
+        $debts = Debt::where('customer_id', $customer->id)->first();
+        if ($debts) {
+            return redirect('/dashboard/customers')->with('failed', 'Pelanggan masih memiliki hutang!');  
+        } else {
+            Customer::destroy($customer->id);
+            return redirect('/dashboard/customers')->with('success', 'Data customer telah berhasil dihapus!');                     
+        } 
     }
 }

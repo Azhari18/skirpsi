@@ -6,9 +6,15 @@
     </div>
 
     @if (session()->has('success'))
-    <div class="alert alert-success col-lg-8" role="alert">
-        {{ session('success') }}
-      </div>
+    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show col-lg-6 justify-content-center">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+            <use xlink:href="#check-circle-fill" />
+        </svg>
+        <div>
+            {{ session('success') }}    
+            <button type="button" class="btn-close" data-bs-dismiss="alert">            
+        </div>
+    </div>
     @endif
 
     <div class="table-responsive">
