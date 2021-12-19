@@ -47,7 +47,7 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
 
     // create the li tag 
     const orderitem = document.createElement('li');
-    orderitem.className = 'd-flex justify-content-end align-items-center'
+    orderitem.className = 'd-flex justify-content-between align-items-center'
 
     // start price ===============================
     // create a span for price 
@@ -70,21 +70,25 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     // start combine (img + itemName + itemPrice) ===============================
     // create a span  
     const leftSideSpan = document.createElement('span');
+    const midSideSpan = document.createElement('span');
 
     // attach or append itemname left to span
     leftSideSpan.appendChild(name);
 
     // attach the orderitempricespan to left span
-    leftSideSpan.appendChild(priceSpan)
+    midSideSpan.appendChild(priceSpan)
 
     // attach or append left span to li
     orderitem.appendChild(leftSideSpan)
+    orderitem.appendChild(midSideSpan)
     // end of combine ===========================================================
 
     // attach or append the li tag (child) to parent id=orderlist 
-    orderlist.appendChild(orderitem);
+    // orderlist.appendChild(orderitem);
 
     // Button section 
+    const rightSideSpan = document.createElement('span');
+
     const incrementButton = document.createElement('button');
     const amountItemSpan = document.createElement('span');
     const decrementButton = document.createElement('button');
@@ -104,9 +108,9 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     amountItemSpan.appendChild(amountItemtext);
     decrementButton.appendChild(decrementbuttontext);
 
-    orderitem.appendChild(incrementButton);
-    orderitem.appendChild(amountItemSpan);
-    orderitem.appendChild(decrementButton);
+    rightSideSpan.appendChild(incrementButton);
+    rightSideSpan.appendChild(amountItemSpan);
+    rightSideSpan.appendChild(decrementButton);
 
     // create a delete button 
     const deleteButton = document.createElement('button');
@@ -118,7 +122,13 @@ function orderbasket(itemId, itemName, itemPrice, itemImage) {
     deleteButton.appendChild(deleteButtonText);
 
     // attach the delete button into li tag
-    orderitem.appendChild(deleteButton);
+    rightSideSpan.appendChild(deleteButton);
+
+    // attach or append left span to li
+    orderitem.appendChild(rightSideSpan)
+
+    // attach or append the li tag (child) to parent id=orderlist 
+    orderlist.appendChild(orderitem);
 
     good_id.value = orderItemIdArray;
 
