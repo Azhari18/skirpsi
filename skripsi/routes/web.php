@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardCategoryController;
 use App\Http\Controllers\DashboardCustomerController;
 use App\Http\Controllers\DashboardDebtController;
 use App\Http\Controllers\DashboardGoodController;
@@ -45,6 +46,9 @@ Route::resource('/dashboard/debts', DashboardDebtController::class);
 
 // Customers Page
 Route::resource('/dashboard/customers', DashboardCustomerController::class);
+
+// Categories Page
+Route::resource('/dashboard/categories', DashboardCategoryController::class);
 
 // Store goods data
 Route::post('/good', [GoodController::class, 'store']);

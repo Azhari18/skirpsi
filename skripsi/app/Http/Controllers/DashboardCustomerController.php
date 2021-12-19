@@ -27,7 +27,7 @@ class DashboardCustomerController extends Controller
      */
     public function create()
     {
-        return view('dashboard.customers.create');                    
+        return view('dashboard.customers.create');
     }
 
     /**
@@ -87,7 +87,7 @@ class DashboardCustomerController extends Controller
         ];
 
         if($request->name != $customer->name) {
-            $rules['name'] = ['required', 'max:255', 'unique:goods'];
+            $rules['name'] = ['required', 'max:255', 'unique:customers'];
         }
 
         $validatedData = $request->validate($rules);
@@ -109,7 +109,7 @@ class DashboardCustomerController extends Controller
             return redirect('/dashboard/customers')->with('failed', 'Pelanggan masih memiliki hutang!');  
         } else {
             Customer::destroy($customer->id);
-            return redirect('/dashboard/customers')->with('success', 'Data customer telah berhasil dihapus!');                     
+            return redirect('/dashboard/customers')->with('success', 'Data pelanggan berhasil dihapus!');                     
         } 
     }
 }
