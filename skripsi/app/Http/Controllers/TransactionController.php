@@ -102,19 +102,11 @@ class TransactionController extends Controller
         if ($request->change >= 0) {
             return redirect('/transaction')->with('success', 'Data Transaksi berhasil disimpan!');
         } else {
-            // return redirect('/dashboard/debts', [
-            //     'transaction_id' => $transactionId
-            // ]);
-
-            // return
-
             return view('dashboard.debts.create', [
                 'transaction_id' => $transactionId,
                 'customers' => Customer::all()
             ]);            
         }
-
-        // return redirect('/transaction')->with('success', 'Data Transaksi berhasil disimpan!');
     }
 
     /**

@@ -82,6 +82,7 @@ class DashboardTransactionController extends Controller
      */
     public function destroy(Transaction $transaction)
     {
-        //
+        Transaction::destroy($transaction->id);
+        return redirect('/dashboard/transactions')->with('success', 'Data transaksi telah berhasil dihapus!');
     }
 }

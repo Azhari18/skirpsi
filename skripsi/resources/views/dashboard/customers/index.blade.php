@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Data Customer</h1>
+        <h1 class="h2">Data Pelanggan</h1>
     </div>
 
     @if (session()->has('success'))
@@ -12,7 +12,7 @@
     @endif
 
     <div class="table-responsive">
-        <a href="/dashboard/customers/create" class="btn btn-primary mb-3">Tambahkan data customer</a>
+        <a href="/dashboard/customers/create" class="btn btn-primary mb-3">Tambahkan data Pelanggan</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>

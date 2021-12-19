@@ -4,7 +4,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">
                     <span data-feather="home"></span>
-                    Dasbor
+                    Dashboard
                 </a>
             </li>
             <li class="nav-item">
@@ -34,7 +34,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/customers*') ? 'active' : '' }}" href="/dashboard/customers">
                     <span data-feather="file-text"></span>
-                    Data Customer
+                    Data Pelanggan
                 </a>
             </li>
             

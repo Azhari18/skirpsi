@@ -92,7 +92,7 @@
                     <div class="tab-pane fade show" id="pills-food" role="tabpanel" aria-labelledby="pills-food-tab">
                         <div class="row row-cols-md-4 g-4">
                             @foreach ($goods as $good)
-                                @if ($good->category->name == 'Food')
+                                @if ($good->category->name == 'Makanan')
                                     @include('dashboard.transactions.partials.card')
                                 @endif
                             @endforeach
@@ -104,7 +104,7 @@
                     <div class="tab-pane fade" id="pills-drink" role="tabpanel" aria-labelledby="pills-drink-tab">
                         <div class="row row-cols-1 row-cols-md-4 g-4">
                             @foreach ($goods as $good)
-                                @if ($good->category->name == 'Drink')
+                                @if ($good->category->name == 'Minuman')
                                     @include('dashboard.transactions.partials.card')
                                 @endif
                             @endforeach

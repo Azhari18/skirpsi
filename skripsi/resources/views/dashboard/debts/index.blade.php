@@ -17,7 +17,7 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Nama pembeli</th>
+                    <th scope="col">Nama Pelanggan</th>
                     <th scope="col">Id Transaksi</th>      
                     <th scope="col">Total Harga</th>
                     <th scope="col">Jumlah Uang Pembayaran</th>

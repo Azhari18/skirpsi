@@ -8,7 +8,7 @@
 
         @else
             <div style="max-height: 150px; overflow:hidden">
-                <img src='img/default.png' draggable="false" class="card-img-top" alt="...">
+                <img src='default.png' draggable="false" class="card-img-top" alt="...">
             </div>
         @endif
 

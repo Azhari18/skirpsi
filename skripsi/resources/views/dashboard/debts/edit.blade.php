@@ -21,7 +21,7 @@
                 @enderror
             </div>
             <div class="mb-3">
-                <label for="customer" class="form-label">Customer</label>
+                <label for="customer" class="form-label">Pelanggan</label>
                 <select class="form-select" name="customer_id">
                     @foreach ($customers as $customer)
                         @if (old('customer_id', $debt->customer_id) == $customer->id)

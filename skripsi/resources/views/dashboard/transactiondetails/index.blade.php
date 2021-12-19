@@ -17,31 +17,20 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
+                    <th scope="col">Nama Barang</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Sub Total</th>
-                    <th scope="col">Id Barang</th>
-                    <th scope="col">Id Transaksi</th>
-                    {{-- <th scope="col">Action</th> --}}
+                    <th scope="col">Id Transaksi</th>                    
                 </tr>
             </thead>
             <tbody>
                 @foreach ($details as $detail)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $detail->good->name }}</td>
                         <td>{{ $detail->quantity }}</td>
                         <td>{{ $detail->sub_total }}</td>
-                        <td>{{ $detail->good_id }}</td>
                         <td>{{ $detail->transaction_id }}</td>
-                        {{-- <td>
-                            <a href="/dashboard/transactiondetails{{ $detail->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
-                            <form action="/dashboard/transactiondetails{{ $detail->id }}" method="post" class="d-inline">
-                                @method('delete')
-                                @csrf
-                                <button class="badge bg-danger border-0" onclick="return confirm('Apakah anda yakin?')">
-                                    <span data-feather="x-circle"></span>
-                                </button>
-                            </form>
-                        </td> --}}
                     </tr>
                 @endforeach
             </tbody>
