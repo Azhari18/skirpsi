@@ -6,15 +6,16 @@
     </div>
 
     @if (session()->has('success'))
-    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show col-lg-6 justify-content-center">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24">
-            <use xlink:href="#check-circle-fill" />
-        </svg>
-        <div>
-            {{ session('success') }}    
-            <button type="button" class="btn-close" data-bs-dismiss="alert">            
+        <div
+            class="alert alert-success d-flex align-items-center alert-dismissible fade show col-lg-6 justify-content-center">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert">
+            </div>
         </div>
-    </div>
     @endif
 
     <div class="table-responsive">
@@ -24,11 +25,11 @@
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama Pelanggan</th>
-                    <th scope="col">Id Transaksi</th>      
+                    <th scope="col">Id Transaksi</th>
                     <th scope="col">Total Harga</th>
-                    <th scope="col">Jumlah Uang Pembayaran</th>
-                    <th scope="col">Kembalian</th>                    
-                    <th scope="col">Tanggal</th>              
+                    <th scope="col">Uang Pembayaran</th>
+                    <th scope="col">Kembalian</th>
+                    <th scope="col">Tanggal</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -37,13 +38,20 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $debt->customer->name }}</td>
-                        <td>{{ $debt->transaction_id }}</td>       
-                        <td>{{ $debt->transaction->total }}</td>
-                        <td>{{ $debt->transaction->customer_paid }}</td>
-                        <td>{{ $debt->transaction->change }}</td>
-                        <td>{{ $debt->transaction->created_at }}</td>                                      
+                        <td>{{ $debt->transaction_id }}</td>
+                        <td>        
+                            {{ 'Rp ' . number_format($debt->transaction->total, 0, ',', '.') }}
+                        </td>
+                        <td>    
+                            {{ 'Rp ' . number_format($debt->transaction->customer_paid, 0, ',', '.') }}
+                        </td>
                         <td>
-                            <a href="/dashboard/debts/{{ $debt->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                            {{ 'Rp ' . number_format($debt->transaction->change, 0, ',', '.') }}
+                        </td>
+                        <td>{{ $debt->transaction->created_at }}</td>
+                        <td>
+                            <a href="/dashboard/debts/{{ $debt->id }}/edit" class="badge bg-warning"><span
+                                    data-feather="edit"></span></a>
                             <form action="/dashboard/debts/{{ $debt->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf

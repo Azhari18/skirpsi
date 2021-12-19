@@ -6,15 +6,16 @@
     </div>
 
     @if (session()->has('success'))
-    <div class="alert alert-success d-flex align-items-center alert-dismissible fade show col-lg-6 justify-content-center">
-        <svg class="bi flex-shrink-0 me-2" width="24" height="24">
-            <use xlink:href="#check-circle-fill" />
-        </svg>
-        <div>
-            {{ session('success') }}    
-            <button type="button" class="btn-close" data-bs-dismiss="alert">            
+        <div
+            class="alert alert-success d-flex align-items-center alert-dismissible fade show col-lg-6 justify-content-center">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#check-circle-fill" />
+            </svg>
+            <div>
+                {{ session('success') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert">
+            </div>
         </div>
-    </div>
     @endif
 
     <div class="table-responsive">
@@ -36,10 +37,13 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $good->id }}</td>
                         <td>{{ $good->name }}</td>
-                        <td>{{ $good->price }}</td>
+                        <td>
+                            {{ 'Rp ' . number_format($good->price, 0, ',', '.') }}
+                        </td>
                         <td>{{ $good->category->name }}</td>
                         <td>
-                            <a href="/dashboard/goods/{{ $good->id }}/edit" class="badge bg-warning"><span data-feather="edit"></span></a>
+                            <a href="/dashboard/goods/{{ $good->id }}/edit" class="badge bg-warning"><span
+                                    data-feather="edit"></span></a>
                             <form action="/dashboard/goods/{{ $good->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
