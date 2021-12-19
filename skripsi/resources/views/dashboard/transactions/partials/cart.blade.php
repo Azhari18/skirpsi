@@ -5,8 +5,7 @@
             <!-- Start Header -->
             <h5 class="d-flex justify-content-between align-items-center">
                 <span>Keranjang</span>
-                <button onclick="orderbasketClear()" class="btn btn-sm btn-danger rounded-pill">Kosongkan</button>
-                {{-- <span></span> --}}
+                <button onclick="orderbasketClear()" class="btn btn-sm btn-danger rounded-pill">Kosongkan</button>                
             </h5>
             <hr>
             <!-- End Header -->

@@ -160,7 +160,7 @@ function quantity(i, value, button) {
 
 function totaltems() {
     var quantity = orderQuantity.reduce((partial_sum, a) => partial_sum + a, 0);
-    document.getElementById('totalItems').innerText = quantity;    
+    document.getElementById('totalItems').innerText = quantity;
 };
 
 function costItems() {
@@ -178,7 +178,7 @@ function costItems() {
 
         good_quantity.value = orderQuantity;
         good_total.value = subTotal;
-        
+
 
         document.getElementById('total').value = cost;
 
@@ -189,13 +189,11 @@ function costItems() {
 };
 
 function orderbasketClear() {
-    let orderlist = document.getElementById('orderlist');
-    document.getElementById('amount').value = 0;
-    orderlist.innerHTML = '';
+    var orderlist = document.getElementById('orderlist');
+    orderItemIdArray.length = 0
     orderQuantity.length = 0;
     orderPriceArray.length = 0;
     orderIdArray.length = 0;
-
     i = 0;
     totaltems();
     costItems();
@@ -208,7 +206,6 @@ function deleteItem(id, button) {
     orderQuantity[id] = 0;
     orderIdArray.splice(indexnum, 1);
     orderPriceArray[id] = 0;
-
     totaltems();
     costItems();
     orderlist.removeChild(button.parentElement);
@@ -248,7 +245,7 @@ function denominationButton(bill) {
 }
 
 function enableConfirmPaidButton() {
-    document.getElementById('confirmPaid').disabled = true;    
+    document.getElementById('confirmPaid').disabled = true;
     if (parseFloat(calculatorScreenAmount.value) >= parseFloat(amount.value)) {
         document.getElementById('confirmPaid').disabled = false;
         document.getElementById('save').disabled = false;
@@ -259,7 +256,7 @@ function confirmPaidButton() {
     customer_paid.value = calculatorScreenAmount.value;
     change.value = calculatorScreenAmount.value - cost;
     customeramountpaid.value = numberWithCommas(calculatorScreenAmount.value);
-    customeramountchange.value = numberWithCommas(parseInt(calculatorScreenAmount.value) - cost);    
+    customeramountchange.value = numberWithCommas(parseInt(calculatorScreenAmount.value) - cost);
     document.getElementById('calculatorModal').disabled = true;
 }
 
@@ -282,7 +279,7 @@ function enableCheckOutButton() {
         checkOutButton.disabled = false;
     }
     if (orderIdArray.length == 0) {
-        const food = document.getElementById('pills-food-tab');
+        const food = document.getElementById('pills-all-tab');
         const foodTab = new bootstrap.Tab(food);
         foodTab.show();
     }
