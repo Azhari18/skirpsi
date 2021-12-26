@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\Debt;
 use Illuminate\Http\Request;
 
 class DashboardTransactionController extends Controller
@@ -82,7 +83,12 @@ class DashboardTransactionController extends Controller
      */
     public function destroy(Transaction $transaction)
     {
-        Transaction::destroy($transaction->id);
-        return redirect('/dashboard/transactions')->with('success', 'Data transaksi telah berhasil dihapus!');
+        $debts = Debt::where('transaction_id', $transaction->id)->first();
+        if ($debts) {
+            return redirect('/dashboard/transactions')->with('failed', 'Transaksi belum Lunas!');  
+        } else {
+            Transaction::destroy($transaction->id);
+            return redirect('/dashboard/transactions')->with('success', 'Data transaksi berhasil dihapus!');                     
+        }         
     }
 }

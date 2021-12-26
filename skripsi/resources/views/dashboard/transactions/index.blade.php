@@ -75,10 +75,6 @@
 
                 <!-- Start Content -->
                 <div class="tab-content" id="pills-tabContent">
-                    @php
-                        const priceRp = 0;
-                    @endphp
-
                     @if ($goods->count())
                         <!-- Start All Content -->
                         <div class="tab-pane fade show active" id="pills-all" role="tabpanel"
