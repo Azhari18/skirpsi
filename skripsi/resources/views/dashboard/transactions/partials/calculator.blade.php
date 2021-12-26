@@ -4,8 +4,7 @@
             <div class="modal-body">
                 <input id="calculatorScreenAmount" type="text"
                     class="mb-3 bg-dark w-100 text-end form-control form-control-lg text-white" disabled value="0">
-                <input id="calculatorScreenValue" type="text" value="0" 
-                    class="mb-3 bg-dark w-100 text-end form-control form-control-lg text-white" disabled value="0">
+                <input id="calculatorScreenValue" type="text" value="0" hidden>
 
                 <div class="row">
                     <div class="col-4 mb-3" onclick="calculatorInsert('9')"><button
@@ -62,7 +61,7 @@
             <div class="modal-footer">
                 <button type="button" onclick="calculatorCancel()" class="btn btn-secondary"
                     data-bs-dismiss="modal">Tutup</button>
-                <button type="button" onclick="confirmPaidButton()" id="confirmPaid" disabled class="btn btn-primary"
+                <button type="button" onclick="confirmPaidButton()" id="confirmPaid" class="btn btn-primary"
                     data-bs-dismiss="modal">Konfirmasi</button>
             </div>
         </div>

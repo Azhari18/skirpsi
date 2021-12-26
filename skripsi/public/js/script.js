@@ -228,28 +228,21 @@ function calculatorInsert(number) {
         calculatorScreenAmount.value += number;
         calculatorScreenValue.value += number;
         calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);
-    }
-
-
-    enableConfirmPaidButton();
+    }    
 };
 
 function calculatorCancel() {
     calculatorScreenAmount.value = '0';
-    calculatorScreenValue.value = '0';
-    enableConfirmPaidButton();
+    calculatorScreenValue.value = '0';    
 };
 
 function denominationButton(bill) {
     calculatorScreenValue.value = parseInt(calculatorScreenValue.value) + bill;
-    calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);
-    enableConfirmPaidButton();
+    calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);    
 }
 
-function enableConfirmPaidButton() {
-    document.getElementById('confirmPaid').disabled = true;
-    if (calculatorScreenValue.value != '0') {
-        document.getElementById('confirmPaid').disabled = false;
+function enableSaveButton() {    
+    if (calculatorScreenValue.value) {        
         document.getElementById('save').disabled = false;
     }
 };
@@ -265,15 +258,14 @@ function confirmPaidButton() {
     } else {
         customeramountchange.className = 'rounded-pill text-center form-control form-control-lg fw-bold text-success';
     }
-    // document.getElementById('calculatorModal').disabled = true;
+    enableSaveButton()    
 }
 
 const amount = document.getElementById('amount');
 
 function exactAmountButton() {
     calculatorScreenValue.value = parseInt(amount.value);
-    calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);
-    enableConfirmPaidButton();
+    calculatorScreenAmount.value = numberWithCommas(calculatorScreenValue.value);    
 };
 
 function exactAmountCalculator() {
