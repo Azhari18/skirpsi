@@ -12,13 +12,7 @@
                     <span data-feather="shopping-cart"></span>
                     TRANSAKSI
                 </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/goods*') ? 'active' : '' }}" href="/dashboard/goods">
-                    <span data-feather="file-text"></span>
-                    DATA BARANG
-                </a>
-            </li>
+            </li>            
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/transactions*') ? 'active' : '' }}" href="/dashboard/transactions">
                     <span data-feather="file-text"></span>
@@ -35,6 +29,12 @@
                 <a class="nav-link {{ Request::is('dashboard/customers*') ? 'active' : '' }}" href="/dashboard/customers">
                     <span data-feather="file-text"></span>
                     DATA PELANGGAN
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ Request::is('dashboard/goods*') ? 'active' : '' }}" href="/dashboard/goods">
+                    <span data-feather="file-text"></span>
+                    DATA BARANG
                 </a>
             </li>
             <li class="nav-item">

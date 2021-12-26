@@ -206,7 +206,7 @@ function deleteItem(id, button) {
     orderPriceArray[id] = 0;
     totaltems();
     costItems();
-    orderlist.removeChild(button.parentElement);
+    orderlist.removeChild((button.parentElement).parentElement);
     enableCheckOutButton()
 };
 
