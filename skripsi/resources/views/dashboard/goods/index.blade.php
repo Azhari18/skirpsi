@@ -16,6 +16,18 @@
                 <button type="button" class="btn-close" data-bs-dismiss="alert">
             </div>
         </div>
+    @elseif(session()->has('failed'))
+
+        <div
+            class="alert alert-danger d-flex align-items-center alert-dismissible fade show col-lg-6 justify-content-center">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24">
+                <use xlink:href="#exclamation-triangle-fill" />
+            </svg>
+            <div>
+                {{ session('failed') }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        </div>
     @endif
 
     <div class="table-responsive">

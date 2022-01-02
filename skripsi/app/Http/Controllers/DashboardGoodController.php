@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Good;
 use App\Models\Category;
+use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -128,7 +129,12 @@ class DashboardGoodController extends Controller
             Storage::delete($good->image);
         }
 
-        Good::destroy($good->id);
-        return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil dihapus!');
+        $details = TransactionDetail::where('good_id', $good->id)->first();
+        if ($details) {
+            return redirect('/dashboard/goods')->with('failed', 'Barang tidak dapat dihapus karena masih tercatat pada transaksi!');  
+        } else {
+            Good::destroy($good->id);
+            return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil dihapus!');                   
+        } 
     }
 }

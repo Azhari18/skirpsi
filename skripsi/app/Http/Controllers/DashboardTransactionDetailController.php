@@ -50,15 +50,15 @@ class DashboardTransactionDetailController extends Controller
      * @param  \App\Models\TransactionDetail  $transactionDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(TransactionDetail $transactionDetail)
-    {
-        return 'berhasil';
-        return $transactionDetail;
-        return $transactionDetail = TransactionDetail::where('transaction_id', );
-        return view('dashboard.transactiondetails.index', [
-            'details' => $transactionDetail
-        ]);
-    }
+    // public function show(TransactionDetail $transactionDetail)
+    // {
+    //     return 'berhasil';
+    //     return $transactionDetail;
+    //     return $transactionDetail = TransactionDetail::where('transaction_id', );
+    //     return view('dashboard.transactiondetails.index', [
+    //         'details' => $transactionDetail
+    //     ]);
+    // }
 
     /**
      * Show the form for editing the specified resource.
