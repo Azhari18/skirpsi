@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use App\Models\Debt;
+use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
 
 class DashboardTransactionController extends Controller
@@ -87,7 +88,8 @@ class DashboardTransactionController extends Controller
         if ($debts) {
             return redirect('/dashboard/transactions')->with('failed', 'Transaksi belum Lunas!');  
         } else {
-            Transaction::destroy($transaction->id);
+            Transaction::destroy($transaction->id);            
+            TransactionDetail::where('transaction_id', $transaction->id)->delete();            
             return redirect('/dashboard/transactions')->with('success', 'Data transaksi berhasil dihapus!');                     
         }         
     }
