@@ -97,6 +97,7 @@ class DashboardDebtController extends Controller
 
         $validatedData = $request->validate($rules);
         
+        Transaction::where('id', $debt->transaction_id)->update(['description' => 'Lunas']);        
         Transaction::where('id', $request->transaction_id)->update(['description' => 'Hutang']);        
         Debt::where('id', $debt->id)->update($validatedData);
         return redirect('/dashboard/debts')->with('success', 'Data Hutang telah diperbaharui');
