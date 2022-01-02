@@ -38,23 +38,23 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-12 mb-3"><button onclick="exactAmountButton()"
-                            class="btn w-100 rounded-pill text-center btn-warning">Uang pas (Rp.<span
+                            class="btn w-100 rounded-pill text-center btn-warning">Uang pas (Rp <span
                                 id="exactAmountSpan"></span>)</button>
                     </div>
                     <div class="col-3 mb-3"><button onclick="denominationButton(1000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp 1,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 1.000</button></div>
                     <div class="col-3 mb-3"><button onclick="denominationButton(2000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp. 2,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 2.000</button></div>
                     <div class="col-3 mb-3"><button onclick="denominationButton(5000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp. 5,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 5.000</button></div>
                     <div class="col-4 mb-3"><button onclick="denominationButton(10000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp. 10,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 10.000</button></div>
                     <div class="col-4 mb-3"><button onclick="denominationButton(20000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp. 20,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 20.000</button></div>
                     <div class="col-4 mb-3"><button onclick="denominationButton(50000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp. 50,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 50.000</button></div>
                     <div class="col-5 mb-3"><button onclick="denominationButton(100000)"
-                            class="btn w-100 rounded-pill text-center btn-warning">Rp. 100,000</button></div>
+                            class="btn w-100 rounded-pill text-center btn-warning">Rp 100.000</button></div>
                 </div>
             </div>
 

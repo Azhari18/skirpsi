@@ -43,7 +43,7 @@ class DashboardCategoryController extends Controller
         ]);
 
         Category::create($validatedData);
-        return redirect('/dashboard/categories')->with('success', 'Data Kategori telah berhasil disimpan!');
+        return redirect('/dashboard/categories')->with('success', 'Data Kategori berhasil disimpan!');
     }
 
     /**

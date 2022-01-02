@@ -5,8 +5,6 @@
         <h1 class="h2">Tambah Data Barang</h1>
     </div>
 
-
-
     <div class="col-lg-8 mb-3">
         <form method="post" action="/dashboard/goods" class="mb-5" enctype="multipart/form-data">
             @csrf

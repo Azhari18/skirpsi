@@ -270,7 +270,7 @@ function exactAmountButton() {
 
 function exactAmountCalculator() {
     const exactAmount = document.getElementById('exactAmountSpan');
-    exactAmount.innerText = amount.value;
+    exactAmount.innerText = numberWithCommas(amount.value);
 }
 
 function enableCheckOutButton() {

@@ -47,7 +47,7 @@ class DashboardDebtController extends Controller
     public function store(Request $request)
     {            
         $validatedData = $request->validate([
-            'transaction_id' => ['required'],
+            'transaction_id' => ['required', 'unique:debts'],
             'customer_id' => ['required']            
         ]);
 
@@ -96,7 +96,8 @@ class DashboardDebtController extends Controller
         ];
 
         $validatedData = $request->validate($rules);
-
+        
+        Transaction::where('id', $request->transaction_id)->update(['description' => 'Hutang']);        
         Debt::where('id', $debt->id)->update($validatedData);
         return redirect('/dashboard/debts')->with('success', 'Data Hutang telah diperbaharui');
     }

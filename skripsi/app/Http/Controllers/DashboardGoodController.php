@@ -108,7 +108,9 @@ class DashboardGoodController extends Controller
 
         if ($request->file('image')) {
             if ($request->oldImage) {
-                Storage::delete($request->oldImage);
+                if ($request->oldImage != 'post-images/default.png' ){
+                    Storage::delete($request->oldImage);
+                } 
             }
             $validatedData['image'] = $request->file('image')->store('post-images');
         }
@@ -125,14 +127,13 @@ class DashboardGoodController extends Controller
      */
     public function destroy(Good $good)
     {
-        if ($good->image != 'post-images/default.png') {
-            Storage::delete($good->image);
-        }
-
         $details = TransactionDetail::where('good_id', $good->id)->first();
         if ($details) {
             return redirect('/dashboard/goods')->with('failed', 'Barang tidak dapat dihapus karena masih tercatat pada transaksi!');  
         } else {
+            if ($good->image != 'post-images/default.png') {
+                Storage::delete($good->image);
+            }
             Good::destroy($good->id);
             return redirect('/dashboard/goods')->with('success', 'Data Barang telah berhasil dihapus!');                   
         } 
