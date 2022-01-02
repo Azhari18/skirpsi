@@ -32,7 +32,7 @@
                     <div class="col-4 mb-3" onclick="calculatorInsert('000')"><button
                             class="btn w-100 rounded-pill text-center btn-outline-dark">000</button></div>
                     <div class="col-4 mb-3" onclick="calculatorCancel()"><button
-                            class="btn w-100 rounded-pill text-center btn-danger">Kosongkan</button></div>
+                            class="btn w-100 rounded-pill text-center btn-danger">Hapus</button></div>
                 </div>
             </div>
             <div class="modal-body">

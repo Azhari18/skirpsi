@@ -45,7 +45,7 @@ class DashboardCustomerController extends Controller
         ]);
 
         Customer::create($validatedData);
-        return redirect('/dashboard/customers')->with('success', 'Data Customer telah berhasil disimpan!');
+        return redirect('/dashboard/customers')->with('success', 'Data pelanggan telah berhasil disimpan!');
     }
 
     /**
@@ -93,7 +93,7 @@ class DashboardCustomerController extends Controller
         $validatedData = $request->validate($rules);
       
         Customer::where('id', $customer->id)->update($validatedData);
-        return redirect('/dashboard/customers')->with('success', 'Data customer telah diperbaharui');
+        return redirect('/dashboard/customers')->with('success', 'Data pelanggan telah diperbaharui');
     }
 
     /**

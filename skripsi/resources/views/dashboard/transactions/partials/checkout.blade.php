@@ -21,7 +21,7 @@
         <div class="col-sm-8">
             <button onclick="exactAmountCalculator()" id="calculatorModal"
                 class="btn btn-success btn-lg w-100 rounded-pill" data-bs-toggle="modal"
-                data-bs-target="#amountcalculator">Masukkan Jumlah Uang Pembayaran </button>
+                data-bs-target="#amountcalculator">Masukkan Uang Pembayaran </button>
         </div>
     </div>
     <div class="row mb-3">

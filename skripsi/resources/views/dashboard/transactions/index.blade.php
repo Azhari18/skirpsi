@@ -29,7 +29,7 @@
                 <div class="row justify-content-start mb-3">
                     <!-- Button Home -->
                     <div id="menuBtn">
-                        <a href="/dashboard/goods">
+                        <a href="/dashboard/transactions">
                             <img src="https://img.icons8.com/ios/50/000000/home--v3.png" />
                         </a>
                     </div>
