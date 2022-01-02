@@ -33,7 +33,7 @@
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">Id</th>
+                    <th scope="col">Id Transaksi</th>
                     <th scope="col">Total Harga</th>
                     <th scope="col">Uang Pembayaran</th>
                     <th scope="col">Kembalian</th>

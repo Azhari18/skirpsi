@@ -31,15 +31,15 @@
     @endif
 
     <div class="table-responsive">
-        <a href="/dashboard/goods/create" class="btn btn-primary mb-3">Tambahkan data barang</a>
+        <a href="/dashboard/goods/create" class="btn btn-primary mb-3">Tambah Data Barang</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
                     <th scope="col">No</th>
-                    <th scope="col">ID</th>
                     <th scope="col">Nama</th>
                     <th scope="col">Harga</th>
                     <th scope="col">Kategori</th>
+                    <th scope="col">Id Barang</th>
                     <th scope="col">Action</th>
                 </tr>
             </thead>
@@ -47,12 +47,12 @@
                 @foreach ($goods as $good)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $good->id }}</td>
                         <td>{{ $good->name }}</td>
                         <td>
                             {{ 'Rp ' . number_format($good->price, 0, ',', '.') }}
                         </td>
                         <td>{{ $good->category->name }}</td>
+                        <td>{{ $good->id }}</td>
                         <td>
                             <a href="/dashboard/goods/{{ $good->id }}/edit" class="badge bg-warning"><span
                                     data-feather="edit"></span></a>

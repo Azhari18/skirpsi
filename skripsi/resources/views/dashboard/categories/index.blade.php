@@ -29,7 +29,7 @@
     @endif
 
     <div class="table-responsive">
-        <a href="/dashboard/categories/create" class="btn btn-primary mb-3">Tambah data Kategori</a>
+        <a href="/dashboard/categories/create" class="btn btn-primary mb-3">Tambah Data Kategori</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>

@@ -22,7 +22,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('dashboard/debts*') ? 'active' : '' }}" href="/dashboard/debts">
                     <span data-feather="file-text"></span>
-                    DATA HUTANG
+                    DATA UTANG
                 </a>
             </li>
             <li class="nav-item">

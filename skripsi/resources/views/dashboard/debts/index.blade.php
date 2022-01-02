@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Data Hutang</h1>
+        <h1 class="h2">Data Utang</h1>
     </div>
 
     @if (session()->has('success'))
@@ -19,16 +19,16 @@
     @endif
 
     <div class="table-responsive">
-        <a href="/dashboard/debts/create" class="btn btn-primary mb-3">Tambahkan data hutang</a>
+        <a href="/dashboard/debts/create" class="btn btn-primary mb-3">Tambah Data Utang</a>
         <table class="table table-striped table-sm">
             <thead>
                 <tr>
                     <th scope="col">No</th>
                     <th scope="col">Nama Pelanggan</th>
-                    <th scope="col">Id Transaksi</th>
                     <th scope="col">Total Harga</th>
                     <th scope="col">Uang Pembayaran</th>
                     <th scope="col">Kembalian</th>
+                    <th scope="col">Id Transaksi</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Action</th>
                 </tr>
@@ -38,7 +38,6 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>{{ $debt->customer->name }}</td>
-                        <td>{{ $debt->transaction_id }}</td>
                         <td>        
                             {{ 'Rp ' . number_format($debt->transaction->total, 0, ',', '.') }}
                         </td>
@@ -48,6 +47,7 @@
                         <td>
                             {{ 'Rp ' . number_format($debt->transaction->change, 0, ',', '.') }}
                         </td>
+                        <td>{{ $debt->transaction_id }}</td>
                         <td>{{ $debt->transaction->created_at }}</td>
                         <td>
                             <a href="/dashboard/debts/{{ $debt->id }}/edit" class="badge bg-warning"><span
