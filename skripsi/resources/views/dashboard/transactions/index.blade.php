@@ -103,8 +103,8 @@
                     @else
                         <p class="text-center fs-4">Barang tidak ditemukan</p>
                         <div class="row justify-content-center">
-                            <a href="/dashboard/goods/create" class="btn btn-primary btn-lg mb-3 col-lg-4">Tambahkan data
-                                barang</a>
+                            <a href="/dashboard/goods/create" class="btn btn-primary btn-lg mb-3 col-lg-4">Tambah Data
+                                Barang</a>
                         </div>
                     @endif
                     @include('dashboard.transactions.partials.checkout')
