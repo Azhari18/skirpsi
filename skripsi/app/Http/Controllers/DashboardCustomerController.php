@@ -106,7 +106,7 @@ class DashboardCustomerController extends Controller
     {    
         $debts = Debt::where('customer_id', $customer->id)->first();
         if ($debts) {
-            return redirect('/dashboard/customers')->with('failed', 'Pelanggan masih memiliki hutang!');  
+            return redirect('/dashboard/customers')->with('failed', 'Pelanggan masih memiliki utang!');  
         } else {
             Customer::destroy($customer->id);
             return redirect('/dashboard/customers')->with('success', 'Data pelanggan berhasil dihapus!');                     

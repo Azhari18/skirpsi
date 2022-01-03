@@ -27,7 +27,7 @@
                     <th scope="col">Nama Pelanggan</th>
                     <th scope="col">Total Harga</th>
                     <th scope="col">Uang Pembayaran</th>
-                    <th scope="col">Kembalian</th>
+                    <th scope="col">Utang</th>
                     <th scope="col">Id Transaksi</th>
                     <th scope="col">Tanggal</th>
                     <th scope="col">Action</th>
@@ -44,8 +44,8 @@
                         <td>    
                             {{ 'Rp ' . number_format($debt->transaction->customer_paid, 0, ',', '.') }}
                         </td>
-                        <td>
-                            {{ 'Rp ' . number_format($debt->transaction->change, 0, ',', '.') }}
+                        <td class="text-danger fw-bold">
+                            {{ 'Rp ' . number_format($debt->transaction->change * -1, 0, ',', '.') }}
                         </td>
                         <td>{{ $debt->transaction_id }}</td>
                         <td>{{ $debt->transaction->created_at }}</td>
