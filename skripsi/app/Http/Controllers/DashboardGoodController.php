@@ -95,7 +95,7 @@ class DashboardGoodController extends Controller
     public function update(Request $request, Good $good)
     {
         $rules = [
-            'price' => ['required', 'max:6'],
+            'price' => ['required', 'max:6', 'min:4'],
             'image' => ['image', 'file', 'max:1024'],
             'category_id' => ['required']
         ];
